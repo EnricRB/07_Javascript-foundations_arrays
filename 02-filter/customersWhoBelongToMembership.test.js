@@ -1,3 +1,6 @@
+import { it, describe, expect } from "vitest";
+import customersWhoBelongToMembership from "./customersWhoBelongToMembership";
+
 const EMPTY_CUSTOMERS_LIST = [];
 
 const CUSTOMERS_LIST = [
@@ -20,11 +23,27 @@ const CUSTOMERS_LIST_WITH_ALL_MEMBERS = [
 ];
 
 describe("customersWhoBelongToMembership", () => {
-  it.todo("should return only customers who are members");
+  it("should return only customers who are members", () => {
+    const result = customersWhoBelongToMembership(CUSTOMERS_LIST);
+    expect(result).toEqual([
+      { name: "Foo", isMember: true },
+      { name: "Fizz", isMember: true },
+      { name: "FizzBuzz", isMember: true },
+    ]);
+  });
 
-  it.todo("should handle an empty array");
+  it("should handle an empty array", () => {
+    const result = customersWhoBelongToMembership(EMPTY_CUSTOMERS_LIST);
+    expect(result).toEqual([]);
+  });
 
-  it.todo("should handle an array with no members");
+  it("should handle an array with no members", () => {
+    const result = customersWhoBelongToMembership(CUSTOMERS_LIST_WITH_NO_MEMBERS);
+    expect(result).toEqual([]);
+  });
 
-  it.todo("should handle an array with all members");
+  it("should handle an array with all members", () => {
+    const result = customersWhoBelongToMembership(CUSTOMERS_LIST_WITH_ALL_MEMBERS);
+    expect(result).toEqual(CUSTOMERS_LIST_WITH_ALL_MEMBERS);
+  });
 });
