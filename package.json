@@ -1,0 +1,15 @@
+{
+  "name": "07_javascript-foundations_arrays",
+  "version": "1.0.0",
+  "description": "<figure style=\"text-align: center\">\r    <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/640px-JavaScript-logo.png\" alt=\"DOM Tree\" width=\"100\" />\r    <figcaption>JavaScript</figcaption>\r </figure>",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "3.0.4"
+  }
+}

@@ -1,3 +1,6 @@
+import { it, describe, expect } from "vitest";
+import extractVipsNames from "./extractVipsNames";
+
 const EMPTY_VIPS_LIST = [];
 
 const SINGLE_VIP_LIST = [{ name: "Foo", age: 80 }];
@@ -19,11 +22,23 @@ const VIPS_WITH_DIFFERENT_AGES = [
 ];
 
 describe("extractVipsNames", () => {
-  it.todo("should extract names from VIPS array");
+  it("should extract names from VIPS array", () => {
+    const result = extractVipsNames(VIPS);
+    expect(result).toEqual(["Foo", "Bar", "Fizz", "Buzz", "FizzBuzz"]);
+  });
 
-  it.todo("should handle an empty array");
+  it("should handle an empty array", () => {
+    const result = extractVipsNames(EMPTY_VIPS_LIST);
+    expect(result).toEqual([]);
+  });
 
-  it.todo("should handle an array with one VIP");
+  it("should handle an array with one VIP", () => {
+    const result = extractVipsNames(SINGLE_VIP_LIST);
+    expect(result).toEqual(["Foo"]);
+  });
 
-  it.todo("should handle VIPs with different ages");
+  it("should handle VIPs with different ages", () => {
+    const result = extractVipsNames(VIPS_WITH_DIFFERENT_AGES);
+    expect(result).toEqual(["Foo", "Bar", "Fizz", "Buzz", "FizzBuzz"]);
+  });
 });

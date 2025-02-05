@@ -1,3 +1,6 @@
+import { it, describe, expect } from "vitest";
+import extendUsersSettings from "./extendUsersSettings";
+
 const USERS = [
   {
     email: "lindsay.ferguson@reqres.in",
@@ -20,7 +23,17 @@ const USERS = [
 ];
 
 describe("extendUsersSettings", () => {
-  it.todo("should add id and isEnabled properties to each user");
+  it("should add id and isEnabled properties to each user", () => {
+    const result = extendUsersSettings(USERS);
+    expect(result).toEqual(USERS.map((user, index) => ({
+      ...user,
+      id: index,
+      isEnabled: true
+    })));
+  });
 
-  it.todo("should handle an empty array");
+  it("should handle empty array", () => {
+    const result = extendUsersSettings([]);
+    expect(result).toEqual([]);
+  });
 });

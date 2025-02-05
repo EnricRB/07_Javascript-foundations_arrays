@@ -1,3 +1,6 @@
+import { it, describe, expect } from "vitest";
+import extractCountriesWithFiveCharactersOrFewer from "./extractCountriesWithFiveCharactersOrFewer";
+
 const EMPTY_COUNTRIES_ARRAY = [];
 const COUNTRIES_WITH_NO_SHORT_NAMES = ["United Kingdom", "Portugal", "Greece"];
 const COUNTRIES_WITH_ALL_SHORT_NAMES = ["Italy", "Spain", "Japan"];
@@ -10,15 +13,23 @@ const COUNTRIES_WITH_MIXED_LENGTH = [
 ];
 
 describe("extractCountriesWithFiveCharactersOrFewer", () => {
-  it.todo("should return countries with five characters or fewer");
+  it("should return countries with five characters or fewer", () => {
+    const result = extractCountriesWithFiveCharactersOrFewer(COUNTRIES_WITH_MIXED_LENGTH);
+    expect(result).toEqual(["Italy"]);
+  });
 
-  it.todo("should handle an empty array of countries");
+  it("should handle an empty array of countries", () => {
+    const result = extractCountriesWithFiveCharactersOrFewer(EMPTY_COUNTRIES_ARRAY);
+    expect(result).toEqual([]);
+  });
 
-  it.todo(
-    "should handle an array with no countries having five characters or fewer"
-  );
+  it("should handle an array with no countries having five characters or fewer", () => {
+    const result = extractCountriesWithFiveCharactersOrFewer(COUNTRIES_WITH_NO_SHORT_NAMES);
+    expect(result).toEqual([]);
+  });
 
-  it.todo(
-    "should handle an array with all countries having five characters or fewer"
-  );
+  it("should handle an array with all countries having five characters or fewer", () => {
+    const result = extractCountriesWithFiveCharactersOrFewer(COUNTRIES_WITH_ALL_SHORT_NAMES);
+    expect(result).toEqual(COUNTRIES_WITH_ALL_SHORT_NAMES);
+  });
 });
